@@ -1,4 +1,4 @@
-#cuerpo {
+.contenedor {
     width: 500px;
     height: 500px;
     border: 5px solid black;
@@ -9,6 +9,6 @@
     align-items: center;
 }
 
-#titulo {
+.titulo {
     padding-top: auto;
 }

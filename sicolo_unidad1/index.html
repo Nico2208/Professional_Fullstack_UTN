@@ -13,24 +13,27 @@
             <h1>Seguro No Pagamos Cooperativa</h1>
         </header>
         <div>
-            <form name="formulario">
+            <form name="formulario" class="formulario">
                 <div>
+                    <h2>Complete el formulario</h2>
+                </div
+                <div class="infoIngresada">
                     <label>Nombre</label>
                     <input type="text" name="nombre" id="nombreId">
                 </div>
-                <div>
+                <div class="inputs"> 
                     <label>Apellido</label>
                     <input type="text" name="apellido" id="apellidoId">
                 </div>
-                <div>
+                <div class="inputs">
                     <label>Email</label>
                     <input type="email" name="mail" id="mailId">
                 </div>
-                <div>
+                <div class="inputs">
                     <label>Telefono</label>
                     <input type="number" name="telefono" id="telefonoId">
                 </div>
-                <div>
+                <div class="inputs">
                     <label>Tipo de seguro</label> 
                     <select name="tipoSeguro" id="tipoSeguro" onchange="mostrarValorSeguro()">
                         <option value="1">Básico</option>

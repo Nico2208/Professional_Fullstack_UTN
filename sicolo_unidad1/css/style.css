@@ -14,6 +14,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* width: 100px; */
 }
 
+.infoIngresada {
+    text-align: left;
+    width: 200px;
+    height: 50px;
+}
+
+.inputId {
+    text-align: justify;
+    width: 150px;
+}
+
+.boton{
+    width: 200px;
+}
+
+.tituloLabel{
+    width: 30px;
+}

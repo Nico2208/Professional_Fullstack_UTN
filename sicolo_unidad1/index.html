@@ -16,25 +16,25 @@
             <form name="formulario" class="formulario">
                 <div>
                     <h2>Complete el formulario</h2>
-                </div
+                </div>
                 <div class="infoIngresada">
-                    <label>Nombre</label>
-                    <input type="text" name="nombre" id="nombreId">
+                    <label class="tituloLabel">Nombre</label>
+                    <input type="text" name="nombre" class="inputId" id="nombreId">
                 </div>
-                <div class="inputs"> 
-                    <label>Apellido</label>
-                    <input type="text" name="apellido" id="apellidoId">
+                <div class="infoIngresada"> 
+                    <label class="tituloLabel">Apellido</label>
+                    <input type="text" name="apellido" class="inputId" id="apellidoId">
                 </div>
-                <div class="inputs">
-                    <label>Email</label>
-                    <input type="email" name="mail" id="mailId">
+                <div class="infoIngresada">
+                    <label class="tituloLabel">Email</label>
+                    <input type="email" name="mail" class="inputId" id="mailId">
                 </div>
-                <div class="inputs">
-                    <label>Telefono</label>
-                    <input type="number" name="telefono" id="telefonoId">
+                <div class="infoIngresada">
+                    <label class="tituloLabel">Telefono</label>
+                    <input type="number" name="telefono" class="inputId" id="telefonoId">
                 </div>
-                <div class="inputs">
-                    <label>Tipo de seguro</label> 
+                <div class="infoIngresada">
+                    <label class="tituloLabel">Tipo de seguro</label> 
                     <select name="tipoSeguro" id="tipoSeguro" onchange="mostrarValorSeguro()">
                         <option value="1">Básico</option>
                         <option value="2">Intermedio</option>
@@ -43,7 +43,7 @@
                     <span id="precioSeguro"></span>
                 </div>
                 <div>
-                    <button type="submit">Enviar</button>
+                    <button type="submit" class="boton">Enviar</button>
                 </div>
             </form>
         </div>

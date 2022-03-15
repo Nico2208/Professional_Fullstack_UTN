@@ -5,12 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
-    <link rel="stylesheet" href="/calculadora/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <div class="container">
-        <div class="marca">Xuxita AF-300X</div>
+        <div class="marca">BASIO AF-300X</div>
         <div class="display" id="display"> </div>
+        <div class="displaysR">
+            <div class="display1" id="display1"> </div>
+            <div class="display1" id="display2"> </div>
+            <div class="display1" id="display3"> </div>
+        </div>  
         <div class="columnas">
             <div class="columna left">
                 <div class="numero" id="nueve" onclick="mostrarNumero('nueve')">9</div>
@@ -30,10 +35,10 @@
                 <div class="simbolo" id="dividir" onclick="mostrarSimbolo('dividir')">/</div>
                 <div class="simbolo" id="multiplicar" onclick="mostrarSimbolo('multiplicar')">*</div>
                 <div class="simbolo" id="igual" onclick="calcular()">=</div>
-                <div class="simbolo" id="reset">Reset</div>
+                <div class="simbolo" id="reset" onclick="resetear()">Reset</div>
             </div>
         </div>
     </div>
-    <script src="/calculadora/js/script.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html>

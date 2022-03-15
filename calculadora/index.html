@@ -25,11 +25,12 @@
                 <div class="numero" id="cero" onclick="mostrarNumero('cero')">0</div>
             </div>
             <div class="columna right">
-                <div class="simbolo">+</div>
-                <div class="simbolo">-</div>
-                <div class="simbolo">/</div>
-                <div class="simbolo">X</div>
-                <div class="simbolo">=</div>
+                <div class="simbolo" id="sumar" onclick="mostrarSimbolo('sumar')">+</div>
+                <div class="simbolo" id="restar" onclick="mostrarSimbolo('restar')">-</div>
+                <div class="simbolo" id="dividir" onclick="mostrarSimbolo('dividir')">/</div>
+                <div class="simbolo" id="multiplicar" onclick="mostrarSimbolo('multiplicar')">*</div>
+                <div class="simbolo" id="igual" onclick="calcular()">=</div>
+                <div class="simbolo" id="reset">Reset</div>
             </div>
         </div>
     </div>

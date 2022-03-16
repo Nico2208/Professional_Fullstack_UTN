@@ -43,5 +43,4 @@ const calcular = () => {
             document.getElementById('display').innerHTML = num1 / num2;
             break;
     }
-    
 }

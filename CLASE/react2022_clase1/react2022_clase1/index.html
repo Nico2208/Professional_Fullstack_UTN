@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Clase 1</title>
+        
+    </head>
+    <body>
+        
+        <button onclick="mostrarMensaje()" >Mostrar mensaje</button>
+        <form name="formContacto" id="formContactoId" onsubmit="handleSubmit(); return false;">
+            <div>
+                <label>Nombre</label>
+                <input type="text" name="nombre" id="nombreId">
+            </div>
+            <div id="errorNombre"></div>
+            <div>
+                <label>Apellido</label>
+                <input type="text" name="apellido" id="apellidoId">
+            </div>
+            <div>
+                <label>Email</label>
+                <input type="email" name="email" id="emailId">
+            </div>
+            <div>
+                <label>Tipo Seguro</label>
+                <select name="seguroTipo" id="seguroTipoId" onchange="mostrarValorSeguro()">
+                    <option value="1">Basico</option>
+                    <option value="2">Intermedio</option>
+                    <option value="3">Premium</option>
+                </select>
+                <span id="valorSeguro"></span>
+            </div>
+            
+            <div>
+                <label>Descripcion</label>
+                <textarea name="descripcion" id="descripcionId" cols="30" rows="10"></textarea>
+            </div>
+
+            <button type="submit">Contactarse</button>
+        </form>
+        <div id="paisesId"></div>
+    </body>
+    <script src="./scripts.js"></script>
+</html>

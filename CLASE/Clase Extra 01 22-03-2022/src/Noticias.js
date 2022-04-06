@@ -4,6 +4,7 @@ import Noticia from "./Noticia"
 class Noticias extends Component{
     constructor(){
         super()
+        // El estado es un objeto
         this.state={
             noticias:[
                 {

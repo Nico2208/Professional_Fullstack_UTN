@@ -24,4 +24,6 @@ class Formulario extends Component {
     }
 }
 
+// agrego comentario
+
 export default Formulario;

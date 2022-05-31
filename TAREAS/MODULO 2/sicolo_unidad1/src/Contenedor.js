@@ -5,7 +5,7 @@ import Producto from "./Producto";
 function Contenedor () {
     return (
         <>
-            <Titulo/>
+            <Titulo/>  
             <Producto/>
             
         </>
@@ -13,4 +13,3 @@ function Contenedor () {
 }
 
 export default Contenedor;
-

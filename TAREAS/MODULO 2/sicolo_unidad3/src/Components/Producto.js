@@ -15,8 +15,9 @@ function Producto (props) {
         <div>
             <p><b>{nombre}</b></p>
             <img src={thumbnail} styles={styles.img}></img>
-            <p>{precio}</p>
+            <p>Precio: ${precio}</p>
             <Link to={'/producto/'+id}>Ver Detalle</Link>
+            <p>Cantidad disponible: {cantDisponible}</p>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Producto from "./Producto";
-import ProductoService, { getAllProductos } from "../Services/ProductoService";
+import productoService, { getAllProductos } from "../Services/productoService";
 
 function Productos () {
     const [loading, setLoading] = useState (true)
@@ -12,10 +12,10 @@ function Productos () {
         () => {
             const request = async () => {
                 setLoading(true)
-                const response = await getAllProductos(buscar)
+                const response = await getAllProductos(filtrar)
                 setResponse(response.data)
                 setListadoProductos(response.data.results)
-                setLoading(true)
+                setLoading(false)
             }
             request ()
         },

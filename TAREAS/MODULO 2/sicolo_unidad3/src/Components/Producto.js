@@ -17,6 +17,8 @@ function Producto (props) {
             <img src={thumbnail} styles={styles.img}></img>
             <p>Precio: ${precio}</p>
             <Link to={'/producto/'+id}>Ver Detalle</Link>
+            {/* Hago que el sitio de detalle sea producto + el id de producto */}
+            {/* Link redirige hacia la pagina de detalle (indicado en Public.js) */}
             <p>Cantidad disponible: {cantDisponible}</p>
         </div>
     )

@@ -22,7 +22,7 @@ function Detalle () {
                 
                 try{
                     setLoading(true)
-                    const response = await getByIdProductos(id) //Hacemos async await usando axios
+                    const response = await getByIdProductos(id) //Hacemos async await usando axios para traer la informacion de la api de ML
                     setProducto(response.data)
                     setLoading(false)
                 }catch(e){

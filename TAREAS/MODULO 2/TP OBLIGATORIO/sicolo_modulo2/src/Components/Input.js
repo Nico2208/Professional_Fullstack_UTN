@@ -1,12 +1,13 @@
+import Form from 'react-bootstrap/Form'
 function Input (props) {
     const {label, type, placeHolder, name, change} = props
 
     return (
         <>
-            <div>
-                <label>{label}</label>
-                <input type={type} placeholder={placeHolder} name={name} onChange={change} ></input>
-            </div>
+            <Form.Group className="mb-3">
+                <Form.Label>{label}</Form.Label>
+                <Form.Control type={type} placeholder={placeHolder} onChange={change} name={name} />
+            </Form.Group>
         </>
     )
 }

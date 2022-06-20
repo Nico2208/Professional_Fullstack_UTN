@@ -3,14 +3,15 @@ import Input from "../Components/Input";
 import {Form,Button} from 'react-bootstrap'
 import firebase from "../Config/firebase";
 
-function Registro () {
+function ProductosAlta () {
 
-    const [form, setForm] = useState ({nombre: '', apellido: '', email:'', password:''})
+    const [form, setForm] = useState ({name: '', price: '', description:''})
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        let email = form.email
-        let password = form.password
+        let name = form.name
+        let price = form.price
+        let description = form.description
         // firebase.auth.createUserWithEmailAndPassword(email, password)
         //     .then( data =>{
         //         console.log("Usuario creado", data.user.uid)
@@ -31,17 +32,14 @@ function Registro () {
         //         console.log("Error", error)
         //     })
         try{
-            const responseUser = await firebase.auth.createUserWithEmailAndPassword(email, password)
-            console.log("Response User", responseUser)
-            if (responseUser.user.uid) {
-                const document = await firebase.db.collection("usuarios")
-                    .add ({
-                        name: form.nombre,
-                        lastName: form.apellido,
-                        userId: responseUser.user.uid
-                    })
-                console.log("document", document)
-            }
+            const product = await firebase.db.collection("productos")
+                .add({
+                    name: name,
+                    price: price,
+                    description: description
+                })
+            console.log("producto ", product)
+            
         } catch (error) {
             console.log(error)
         }
@@ -55,16 +53,15 @@ function Registro () {
 
     return(
         <div>
-            <h2>Por favor, registrese con sus datos.</h2>
+            <h2>Alta de Productos</h2>
             <Form onSubmit={handleSubmit}>
-                <Input type="text" label="Nombre" name="nombre" value={form.nombre} change={handleChange}/>
-                <Input type="text" label="Apellido" name="apellido" value={form.apellido} change={handleChange}/>
-                <Input type="email" label="Email" name="email" value={form.email} change={handleChange} />
-                <Input type="password" label="Contraseña" name="password" value={form.email} change={handleChange}/>
-                <Button variant="primary" type="submit">Registrarme</Button>
+                <Input type="text" label="Nombre" name="name" value={form.name} change={handleChange}/>
+                <Input type="text" label="Precio" name="price" value={form.price} change={handleChange}/>
+                <Input type="text" label="Descripcion" name="description" value={form.description} change={handleChange} />
+                <Button variant="primary" type="submit">Guardar</Button>
             </Form>
         </div>
     )
 }
 
-export default Registro
+export default ProductosAlta

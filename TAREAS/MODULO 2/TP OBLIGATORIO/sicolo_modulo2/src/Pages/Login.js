@@ -1,11 +1,40 @@
-import { useState } from "react";
+import { useState, useContext} from "react";
 import Input from "../Components/Input";
+import {Button, Form} from 'react-bootstrap'
+import {useNavigate} from 'react-router-dom';
+import firebase from "../Config/firebase";
+import AlertCustom from "../Components/AlertCustom";
+import {loginMessage} from "../Utils/errorMessage"
+import AuthContext from "../Context/AuthContext";
 
 function Login () {
-    const [form, setForm] = useState ({usuario:'', password:''})
-    const handleSubmit = (e) => {
-        console.log("handleSubmit", form)
-        e.preventDefault()
+    const navigate = useNavigate();
+    const [form, setForm] = useState ({email:'', password:''})
+    const [alert, setAlert] = useState({text:'', variant:''})
+    const context = useContext(AuthContext)
+    const handleSubmit = async (e) => {
+        try{
+            e.preventDefault()
+            let email = form.email
+            let password = form.password
+            const responseUser = await firebase.auth.signInWithEmailAndPassword (email, password)
+            console.log("responseUser, ", responseUser)
+            console.log("responseUser, ", responseUser)
+            if(responseUser.user.uid) {
+                const userInfo = await firebase.db.collection("usuarios")
+                    .where("userId", "==", responseUser.user.uid)
+                    .get()
+                if(userInfo) {
+                    const nombre = userInfo.docs[0]?.data().name
+                    setAlert({variant: 'success', text: 'Bienvenido ' + nombre})
+                    context.loginUser()
+                }
+            }
+        } catch (error) {
+            console.log(error)
+            setAlert({variant:'danger', text:loginMessage[error.code]})
+        }
+
     }
     const handleChange = (e) => {
         const name = e.target.name
@@ -16,11 +45,12 @@ function Login () {
     return (
         <div>
             <h2>Bienvenido. Por favor ingrese su nombre y contraseña</h2>
-            <form onSubmit={handleSubmit}>
-                <Input label="Nombre" name="nombre" type="text" value={form.nombre} change={handleChange}/>
+            <Form onSubmit={handleSubmit}>
+                <Input label="Email" name="email" type="email" value={form.email} change={handleChange}/>
                 <Input label="Contraseña" name="password" type="password" value={form.password} change={handleChange}/>
-                <button type="submit">Ingresar</button>
-            </form>
+                <Button variant="primary" type="submit">Ingresar</Button>
+                <AlertCustom {...alert}/>
+            </Form>
         </div>
     )
 }

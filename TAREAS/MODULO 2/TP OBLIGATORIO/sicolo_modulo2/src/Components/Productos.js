@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { getAllProductos } from "../Services/productosServices";
-import Producto from "./Producto";
+import { Row, Button } from "react-bootstrap";
+import Producto from "../Components/Producto"
+import Loading from "./Loading";
 
 function Productos () {
-    const [productos, setProductos] = useState ({})
     const [listadoProductos, setListadoProductos] = useState ([])
     const [loading, setLoading] = useState (true)
     const [item, setItem] = useState ("motorola")
@@ -14,8 +15,8 @@ function Productos () {
                 try {
                     setLoading(true)
                     const response = await getAllProductos(item)
-                    setProductos(response.data)
-                    setListadoProductos(response.data.results)
+                    console.log("response, ", response)
+                    setListadoProductos(response)
                     setLoading(false)
 
                 } catch (e) {
@@ -36,22 +37,21 @@ function Productos () {
         setItem("motorola")
     }
 
-    if (loading) {
-        return (
-            <div>
-                Cargando...
-            </div>
-        )
-    } else {
-        return (
-            <div>
-                <h2>Listado de Productos Motorola</h2>
-                <button onClick={cambiarIpod}>Filtrar iPod</button>
-                <button onClick={resetear}>Resetear listado</button>
-                {listadoProductos.map(element => <Producto nombre={element.title} id={element.id} precio={element.price} thumbnail={element.thumbnail}/>)}
-            </div>
-        )
-    }
+    return(
+        <>
+            <Loading loading={loading}>
+                <div>
+                    <h2>Listado de Productos Motorola</h2>
+                    <Button variant="primary" onClick={cambiarIpod}>Filtrar iPod</Button>
+                    <Button variant="primary" onClick={resetear}>Resetear Listado</Button>
+                    
+                        {listadoProductos.map(element => <Producto nombre={element.data().name} id={element.id} precio={element.data().price} thumbnail={element.data().img}/>)}
+                    
+                </div>
+            </Loading>
+        </>
+    )
+
 
 }
 

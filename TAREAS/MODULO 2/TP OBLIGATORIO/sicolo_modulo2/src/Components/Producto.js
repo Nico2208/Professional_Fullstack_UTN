@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
+import { Col, Button, Card } from "react-bootstrap";
 
 const styles = {
     img: {
-        width: '100px',
-        backgroundColor: 'red'
+        height: "50px",
+        backgroundColor: 'red',
+        margin: '5px'
     }
 }
 function Producto (props) {
@@ -15,15 +17,27 @@ function Producto (props) {
 
     return (
         <div>
-            <p><b>{nombre}</b></p>
-            <p>${precio}</p>
-            <img src={thumbnail} style={styles.img}></img>
-            <div>
-                <Link to={'/producto/'+id}>Detalle</Link>
-            </div>
-            <button onClick={mostrarMensaje}>Comprar</button>
+            <Col>
+                <Card style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src={thumbnail} style={styles.img}/>
+                    <Card.Body>
+                    <Card.Title>{nombre}</Card.Title>
+                    {
+                        precio && 
+                        <Card.Text>
+                            <p>${precio}</p>
+                        </Card.Text>
+                    }
+                    <Button variant="secondary" as={Link} to={'/producto/'+id}>Detalles</Button>
+                    <Button variant="secondary" as={Link} to={'/producto/modificar/'+id}>Modificar</Button>
+                    <Button variant="outline-primary" onClick={mostrarMensaje}>Comprar</Button>
+                    </Card.Body>
+                </Card>
+            </Col>
             
         </div>
+
+
     )
 }
 

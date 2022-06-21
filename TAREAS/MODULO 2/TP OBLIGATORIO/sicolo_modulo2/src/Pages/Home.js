@@ -1,6 +1,8 @@
 import Productos from "../Components/Productos";
 import firebase from "../Config/firebase"
 
+
+
 function Home () {
     console.log("firebase: ", firebase)
     return (

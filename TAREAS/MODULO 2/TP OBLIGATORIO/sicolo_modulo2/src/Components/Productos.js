@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllProductos } from "../Services/productosServices";
 import { Row, Button } from "react-bootstrap";
-import Producto from "../Components/Producto"
+import Producto from "./Producto"
 import Loading from "./Loading";
 
 function Productos () {
@@ -39,14 +39,11 @@ function Productos () {
 
     return(
         <>
+        
             <Loading loading={loading}>
                 <div>
                     <h2>Listado de Productos Motorola</h2>
-                    <Button variant="primary" onClick={cambiarIpod}>Filtrar iPod</Button>
-                    <Button variant="primary" onClick={resetear}>Resetear Listado</Button>
-                    
-                        {listadoProductos.map(element => <Producto nombre={element.data().name} id={element.id} precio={element.data().price} thumbnail={element.data().img}/>)}
-                    
+                    {listadoProductos.map(element => <Producto nombre={element.data().name} id={element.id} precio={element.data().price} thumbnail={element.data().img}/>)}
                 </div>
             </Loading>
         </>

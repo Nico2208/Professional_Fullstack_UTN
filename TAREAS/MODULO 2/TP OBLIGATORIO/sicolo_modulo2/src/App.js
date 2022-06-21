@@ -3,15 +3,21 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Menu from './Components/Menu';
 import Public from './Routes/Public';
 import { Container } from 'react-bootstrap';
+import React, { useState } from 'react';
+import AuthProvider from './Context/AuthProvider';
 
 function App() {
+  const [login, setLogin] = useState (false)
   return (
     <Router>
-      <Menu/>
-      <Container>
-        <Public/>
-        </Container>
+      <AuthProvider>
+        <Menu login={login}/>
+        <Container>
+          <Public setLogin={setLogin}/>
+          </Container>
+      </AuthProvider>
     </Router>
+    
   );
 }
 

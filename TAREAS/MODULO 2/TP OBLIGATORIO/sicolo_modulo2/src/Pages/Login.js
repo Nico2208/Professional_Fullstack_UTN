@@ -7,7 +7,8 @@ import AlertCustom from "../Components/AlertCustom";
 import {loginMessage} from "../Utils/errorMessage"
 import AuthContext from "../Context/AuthContext";
 
-function Login () {
+function Login (props) {
+    const {setLogin} = props
     const navigate = useNavigate();
     const [form, setForm] = useState ({email:'', password:''})
     const [alert, setAlert] = useState({text:'', variant:''})
@@ -26,8 +27,9 @@ function Login () {
                     .get()
                 if(userInfo) {
                     const nombre = userInfo.docs[0]?.data().name
+                    setLogin(true)
                     setAlert({variant: 'success', text: 'Bienvenido ' + nombre})
-                    context.loginUser()
+                    context.loginUser(userInfo.docs[0]?.data())
                 }
             }
         } catch (error) {

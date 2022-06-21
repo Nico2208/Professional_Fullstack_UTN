@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
+import AuthContext from "../../Context/AuthContext";
 import { Col, Button, Card } from "react-bootstrap";
+import Acciones from "./Acciones";
 
 const styles = {
     img: {
@@ -16,7 +18,8 @@ function Producto (props) {
     }
 
     return (
-        <div>
+        <>
+            
             <Col>
                 <Card style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={thumbnail} style={styles.img}/>
@@ -28,16 +31,11 @@ function Producto (props) {
                             <p>${precio}</p>
                         </Card.Text>
                     }
-                    <Button variant="secondary" as={Link} to={'/producto/'+id}>Detalles</Button>
-                    <Button variant="secondary" as={Link} to={'/producto/modificar/'+id}>Modificar</Button>
-                    <Button variant="outline-primary" onClick={mostrarMensaje}>Comprar</Button>
+                    <Acciones/>
                     </Card.Body>
                 </Card>
             </Col>
-            
-        </div>
-
-
+        </>
     )
 }
 

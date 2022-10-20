@@ -26,7 +26,7 @@ function Productos () {
             }
             request ()
         },
-        [item]
+        [item] //Array de dependencias con item hara que se actualice la consulta a la bd cada vez que item sea modificado
     )
 
     const cambiarIpod = () => {
